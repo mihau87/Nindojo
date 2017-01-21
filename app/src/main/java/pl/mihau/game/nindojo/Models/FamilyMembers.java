@@ -1,5 +1,6 @@
 package pl.mihau.game.nindojo.Models;
 
+import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
 /**
@@ -8,4 +9,11 @@ import com.activeandroid.annotation.Table;
 
 @Table(name = "FamilyMembers")
 public class FamilyMembers {
+
+    @Column(name = "Name")
+    private int id;
+
+    @Column(name = "Name")
+    private String name;
+
 }
