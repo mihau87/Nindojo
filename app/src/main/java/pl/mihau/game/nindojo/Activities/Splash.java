@@ -31,10 +31,10 @@ public class Splash extends Activity {
                 Thread.sleep(CZAS);
 
             } catch (Exception e) {
-                Log.e("Catch z SplashScreen", e.getMessage());
+                Log.e("SplashScreen", e.getMessage());
             }
 
-            // Włącz główną aktywność
+            // MainActivity launching
             Intent intent = new Intent(Splash.this, MainActivity.class);
             Splash.this.startActivity(intent);
             Splash.this.finish();
