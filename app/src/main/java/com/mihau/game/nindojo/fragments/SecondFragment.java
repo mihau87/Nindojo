@@ -16,8 +16,6 @@ import com.mihau.game.nindojo.R;
 
 /**
  * Fragment class.
- *
- * Created by wagatsumakenju on 2015/08/25.
  */
 public class SecondFragment extends Fragment {
 

@@ -1,5 +1,9 @@
 package com.mihau.game.nindojo.fragments;
 
+/**
+ * Created by x on 27.01.2017.
+ */
+
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;

@@ -6,6 +6,8 @@ package com.mihau.game.nindojo.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,8 +37,14 @@ public class FirstFragment extends Fragment {
         TextView textView = (TextView) v.findViewById(R.id.tvFragFirst);
         textView.setText(getArguments().getString("msg"));
 
-//        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
-
+        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+            }
+        });
         return v;
     }
 
