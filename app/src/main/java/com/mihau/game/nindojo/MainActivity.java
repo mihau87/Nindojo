@@ -122,6 +122,9 @@ public class MainActivity extends AppCompatActivity
             case R.id.radioButton4:
                 pager.setCurrentItem(2);
                 break;
+            default:
+                pager.setCurrentItem(0);
+                break;
         }
     }
 

@@ -12,6 +12,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 import com.mihau.game.nindojo.R;
 
@@ -34,14 +37,17 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.first_frag, container, false);
 
-        TextView textView = (TextView) v.findViewById(R.id.tvFragFirst);
-        textView.setText(getArguments().getString("msg"));
+        EditText pointsEditText = (EditText) v.findViewById(R.id.pointsEditText);
+
+        RadioGroup familyRadioGroup = (RadioGroup) v.findViewById(R.id.familyRadioGroup);
+
+        Spinner actionsSpinner = (Spinner) v.findViewById(R.id.actionSpinner);
 
         FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_SHORT)
+                Snackbar.make(view, "Tu dodasz punkty", Snackbar.LENGTH_SHORT)
                         .setAction("Action", null).show();
             }
         });

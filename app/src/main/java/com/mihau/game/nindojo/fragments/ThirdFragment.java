@@ -11,13 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.mihau.game.nindojo.R;
 
 /**
  * Fragment class.
- *
- * Created by wagatsumakenju on 2015/08/25.
  */
 public class ThirdFragment extends Fragment {
 
