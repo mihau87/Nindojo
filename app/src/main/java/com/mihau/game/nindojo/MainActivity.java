@@ -1,6 +1,8 @@
 package com.mihau.game.nindojo;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -8,6 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.RadioGroup;
 import com.mihau.game.nindojo.fragments.FirstFragment;
 import com.mihau.game.nindojo.fragments.SecondFragment;
@@ -50,6 +53,15 @@ public class MainActivity extends AppCompatActivity
 
         radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
         radioGroup.setOnCheckedChangeListener(this);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Tu dodasz punkty", Snackbar.LENGTH_SHORT)
+                        .setAction("Action", null).show();
+            }
+        });
     }
 
     /*************************************************************
@@ -84,10 +96,6 @@ public class MainActivity extends AppCompatActivity
                 radioGroup.check(R.id.radioButton3);
 //                radioGroup.check(R.id.radioButton1);
                 break;
-            case 3:
-                radioGroup.check(R.id.radioButton3);
-//                radioGroup.check(R.id.radioButton1);
-                break;
             default:
                 radioGroup.check(R.id.radioButton1);
         }
@@ -119,9 +127,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.radioButton3:
                 pager.setCurrentItem(2);
                 break;
-            case R.id.radioButton4:
-                pager.setCurrentItem(2);
-                break;
             default:
                 pager.setCurrentItem(0);
                 break;
@@ -150,8 +155,6 @@ public class MainActivity extends AppCompatActivity
                     return SecondFragment.newInstance("SecondFragment, Instance 1");
                 case 2:
                     return ThirdFragment.newInstance("ThirdFragment, Instance 1");
-                case 3:
-                    return FirstFragment.newInstance("FirstFragment, Instance 1");
                 default:
                     return FirstFragment.newInstance("FirstFragment, Default");
             }
@@ -160,7 +163,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public int getCount() {
             // Show total pages.
-            return 4;
+            return 3;
         }
 
         @Override
@@ -172,8 +175,6 @@ public class MainActivity extends AppCompatActivity
                     return "HISTORIA";
                 case 2:
                     return "USTAWIENIA";
-                case 3:
-                    return "SECTION 4";
             }
             return null;
         }

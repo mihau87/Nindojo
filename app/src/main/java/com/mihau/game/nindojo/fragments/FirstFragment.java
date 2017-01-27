@@ -41,16 +41,9 @@ public class FirstFragment extends Fragment {
 
         RadioGroup familyRadioGroup = (RadioGroup) v.findViewById(R.id.familyRadioGroup);
 
-        Spinner actionsSpinner = (Spinner) v.findViewById(R.id.actionSpinner);
+//        Spinner actionsSpinner = (Spinner) v.findViewById(R.id.actionSpinner);
 
-        FloatingActionButton fab = (FloatingActionButton) v.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Tu dodasz punkty", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
-            }
-        });
+
         return v;
     }
 
