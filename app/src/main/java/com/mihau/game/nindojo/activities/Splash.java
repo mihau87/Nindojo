@@ -1,16 +1,17 @@
-package pl.mihau.game.nindojo.Activities;
+package com.mihau.game.nindojo.activities;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import pl.mihau.game.nindojo.MainActivity;
-import pl.mihau.game.nindojo.R;
+import com.mihau.game.nindojo.MainActivity;
+import com.mihau.game.nindojo.R;
+
 
 public class Splash extends Activity {
 
-    private static final int CZAS = 2000;
+    private static final int TIME = 5000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class Splash extends Activity {
         public void run() {
             try {
                 // tutaj wrzucamy wszystkie akcje potrzebne podczas ładowania aplikacji
-                Thread.sleep(CZAS);
+                Thread.sleep(TIME);
 
             } catch (Exception e) {
                 Log.e("SplashScreen", e.getMessage());
