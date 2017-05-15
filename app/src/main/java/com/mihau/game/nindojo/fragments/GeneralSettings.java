@@ -18,12 +18,12 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import com.mihau.game.nindojo.R;
 
-public class FirstFragment extends Fragment {
+public class GeneralSettings extends Fragment {
 
     /**
      * fields
      */
-    private static FirstFragment instance = null;
+    private static GeneralSettings instance = null;
 
     /**
      * Create fragment view when paginated.
@@ -37,38 +37,16 @@ public class FirstFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.add_points, container, false);
 
-        EditText pointsEditText = (EditText) v.findViewById(R.id.pointsEditText);
-
-        RadioGroup familyRadioGroup = (RadioGroup) v.findViewById(R.id.familyRadioGroup);
-
-//        Spinner actionsSpinner = (Spinner) v.findViewById(R.id.actionSpinner);
-
-
-
-//        FloatingActionButton addPointsFloatingActionButton = (FloatingActionButton) v.findViewById(addPointsFloatingActionButton);
-//        addPointsFloatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Tu dodasz punkty", Snackbar.LENGTH_SHORT)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
 
         return v;
     }
 
-    /**
-     * Returns new instance.
-     *
-     * @param text
-     * @return
-     */
-    public static FirstFragment newInstance(String text){
+    public static GeneralSettings newInstance(String text){
 
         if(instance == null){
             // new instance
-            instance = new FirstFragment();
+            instance = new GeneralSettings();
 
             // sets data to bundle
             Bundle bundle = new Bundle();
@@ -84,4 +62,5 @@ public class FirstFragment extends Fragment {
         }
 
     }
+
 }

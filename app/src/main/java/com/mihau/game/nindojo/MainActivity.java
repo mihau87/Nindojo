@@ -1,5 +1,7 @@
 package com.mihau.game.nindojo;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,19 +9,31 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioGroup;
+
+import com.mihau.game.nindojo.R;
+import com.mihau.game.nindojo.activities.Login;
+import com.mihau.game.nindojo.activities.Settings;
 import com.mihau.game.nindojo.fragments.FirstFragment;
+import com.mihau.game.nindojo.fragments.GeneralSettings;
 import com.mihau.game.nindojo.fragments.SecondFragment;
 import com.mihau.game.nindojo.fragments.ThirdFragment;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.Toolbar;
 
+import static com.mihau.game.nindojo.R.id.fab;
+
 public class MainActivity extends AppCompatActivity
-        implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener{
+        implements ViewPager.OnPageChangeListener
+//        ,RadioGroup.OnCheckedChangeListener
+{
 
     /**
      * fields
@@ -43,7 +57,6 @@ public class MainActivity extends AppCompatActivity
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-
         pager = (ViewPager) findViewById(R.id.viewPager);
         pager.setAdapter(mSectionsPagerAdapter);
         pager.addOnPageChangeListener(this);
@@ -51,17 +64,43 @@ public class MainActivity extends AppCompatActivity
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(pager);
 
-        radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
-        radioGroup.setOnCheckedChangeListener(this);
+//        radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
+//        radioGroup.setOnCheckedChangeListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Tu dodasz punkty", Snackbar.LENGTH_SHORT)
-                        .setAction("Action", null).show();
-            }
-        });
+
+
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Tu dodasz punkty", Snackbar.LENGTH_SHORT)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+    }
+
+
+
+    // Menu icons are inflated just as they were with actionbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            Intent Intent = new Intent(this, Settings.class);
+            startActivity(Intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /*************************************************************
@@ -86,18 +125,19 @@ public class MainActivity extends AppCompatActivity
     public void onPageSelected(int position) {
         switch(position) {
             case 0:
-                radioGroup.check(R.id.radioButton1);
+//                radioGroup.check(R.id.radioButton1);
+//                fab.show();
                 break;
             case 1:
-                radioGroup.check(R.id.radioButton2);
-//                radioGroup.check(R.id.radioButton1);
+//                radioGroup.check(R.id.radioButton2);
+//                fab.hide();
                 break;
-            case 2:
-                radioGroup.check(R.id.radioButton3);
-//                radioGroup.check(R.id.radioButton1);
-                break;
+//            case 2:
+//                radioGroup.check(R.id.radioButton3);
+//                break;
             default:
                 radioGroup.check(R.id.radioButton1);
+//                fab.show();
         }
     }
 
@@ -115,23 +155,25 @@ public class MainActivity extends AppCompatActivity
      * @param group
      * @param checkedId
      */
-    @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch(checkedId) {
-            case R.id.radioButton1:
-                pager.setCurrentItem(0);
-                break;
-            case R.id.radioButton2:
-                pager.setCurrentItem(1);
-                break;
-            case R.id.radioButton3:
-                pager.setCurrentItem(2);
-                break;
-            default:
-                pager.setCurrentItem(0);
-                break;
-        }
-    }
+//    @Override
+//    public void onCheckedChanged(RadioGroup group, int checkedId) {
+//        switch(checkedId) {
+//            case R.id.radioButton1:
+//                pager.setCurrentItem(0);
+//                break;
+//            case R.id.radioButton2:
+//                pager.setCurrentItem(1);
+//                break;
+//            case R.id.radioButton3:
+//                pager.setCurrentItem(2);
+//                break;
+//            default:
+//                pager.setCurrentItem(0);
+//                break;
+//        }
+//    }
+
+
 
     /**
      * Custom PagerAdapter class
@@ -153,8 +195,8 @@ public class MainActivity extends AppCompatActivity
                     return FirstFragment.newInstance("FirstFragment, Instance 1");
                 case 1:
                     return SecondFragment.newInstance("SecondFragment, Instance 1");
-                case 2:
-                    return ThirdFragment.newInstance("ThirdFragment, Instance 1");
+//                case 2:
+//                    return ThirdFragment.newInstance("ThirdFragment, Instance 1");
                 default:
                     return FirstFragment.newInstance("FirstFragment, Default");
             }
@@ -163,8 +205,10 @@ public class MainActivity extends AppCompatActivity
         @Override
         public int getCount() {
             // Show total pages.
-            return 3;
+//            return 3;
+        return 2;
         }
+
 
         @Override
         public CharSequence getPageTitle(int position) {
@@ -173,8 +217,8 @@ public class MainActivity extends AppCompatActivity
                     return "OGÓLNE";
                 case 1:
                     return "HISTORIA";
-                case 2:
-                    return "USTAWIENIA";
+//                case 2:
+//                    return "USTAWIENIA";
             }
             return null;
         }

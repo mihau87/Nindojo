@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.mihau.game.nindojo.MainActivity;
 import com.mihau.game.nindojo.R;
 
 
@@ -35,8 +34,8 @@ public class Splash extends Activity {
                 Log.e("SplashScreen", e.getMessage());
             }
 
-            // MainActivity launching
-            Intent intent = new Intent(Splash.this, MainActivity.class);
+            // Login activity launching
+            Intent intent = new Intent(Splash.this, Login.class);
             Splash.this.startActivity(intent);
             Splash.this.finish();
         }
