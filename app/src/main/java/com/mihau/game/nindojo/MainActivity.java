@@ -20,7 +20,7 @@ import android.widget.RadioGroup;
 
 import com.mihau.game.nindojo.R;
 import com.mihau.game.nindojo.activities.Login;
-import com.mihau.game.nindojo.activities.Settings;
+import com.mihau.game.nindojo.activities.SettingsActivity;
 import com.mihau.game.nindojo.fragments.FirstFragment;
 import com.mihau.game.nindojo.fragments.GeneralSettings;
 import com.mihau.game.nindojo.fragments.SecondFragment;
@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            Intent Intent = new Intent(this, Settings.class);
+            Intent Intent = new Intent(this, SettingsActivity.class);
             startActivity(Intent);
             return true;
         }

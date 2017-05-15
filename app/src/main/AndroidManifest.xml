@@ -27,7 +27,7 @@
         <activity android:name=".activities.Login">
 
         </activity>
-        <activity android:name=".activities.Settings">
+        <activity android:name=".activities.SettingsActivity">
 
         </activity>
     </application>
