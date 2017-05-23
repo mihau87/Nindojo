@@ -35,24 +35,9 @@ public class FirstFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.add_points, container, false);
-
-        EditText pointsEditText = (EditText) v.findViewById(R.id.pointsEditText);
-
-        RadioGroup familyRadioGroup = (RadioGroup) v.findViewById(R.id.familyRadioGroup);
-
-//        Spinner actionsSpinner = (Spinner) v.findViewById(R.id.actionSpinner);
+        View v = inflater.inflate(R.layout.general_stats_main, container, false);
 
 
-
-//        FloatingActionButton addPointsFloatingActionButton = (FloatingActionButton) v.findViewById(addPointsFloatingActionButton);
-//        addPointsFloatingActionButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Tu dodasz punkty", Snackbar.LENGTH_SHORT)
-//                        .setAction("Action", null).show();
-//            }
-//        });
 
 
         return v;

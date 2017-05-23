@@ -8,27 +8,25 @@
     android:fitsSystemWindows="true"
     tools:context="com.mihau.game.nindojo.MainActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:popupTheme="@style/AppTheme.PopupOverlay">
 
+    </android.support.v7.widget.Toolbar>
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/appbar_padding_top"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
         android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
-
-        </android.support.v7.widget.Toolbar>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tabs"
+            android:layout_gravity="top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
@@ -38,44 +36,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/viewPager"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="@dimen/appbar_height"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         />
 
-
-    <!--<RadioGroup-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_gravity="center_horizontal|bottom"-->
-        <!--android:orientation="horizontal"-->
-        <!--android:id="@+id/radiogroup">-->
-
-        <!--<RadioButton-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/radioButton1"-->
-            <!--android:checked="true" />-->
-
-        <!--<RadioButton-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/radioButton2" />-->
-
-        <!--<RadioButton-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:id="@+id/radioButton3" />-->
-
-    <!--</RadioGroup>-->
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_plus"
-        android:layout_gravity="bottom|right"
-        android:layout_marginBottom="16dp"
-        android:layout_marginRight="16dp"
-        />
 </android.support.design.widget.CoordinatorLayout>

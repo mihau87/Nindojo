@@ -38,9 +38,10 @@ public class MainActivity extends AppCompatActivity
     /**
      * fields
      */
+    private Toolbar toolbar;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-//    private static final int NUMBER_OF_PAGES = 4;
+    //    private static final int NUMBER_OF_PAGES = 4;
     private RadioGroup radioGroup;
     ViewPager pager;
 
@@ -52,8 +53,11 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        changeToolbarTitle(0);
         setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(0xFFFFFFFF);
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -63,22 +67,7 @@ public class MainActivity extends AppCompatActivity
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(pager);
-
-//        radioGroup = (RadioGroup)findViewById(R.id.radiogroup);
-//        radioGroup.setOnCheckedChangeListener(this);
-
-
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Tu dodasz punkty", Snackbar.LENGTH_SHORT)
-//                        .setAction("Action", null).show();
-//            }
-//        });
     }
-
 
 
     // Menu icons are inflated just as they were with actionbar
@@ -108,6 +97,7 @@ public class MainActivity extends AppCompatActivity
      *************************************************************/
     /**
      * When the current page is scrolled
+     *
      * @param position
      * @param v
      * @param i
@@ -119,61 +109,33 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * When a new page becomes selected
+     *
      * @param position
      */
     @Override
     public void onPageSelected(int position) {
         switch(position) {
             case 0:
-//                radioGroup.check(R.id.radioButton1);
-//                fab.show();
+                changeToolbarTitle(position);
                 break;
             case 1:
-//                radioGroup.check(R.id.radioButton2);
-//                fab.hide();
+                changeToolbarTitle(position);
                 break;
-//            case 2:
-//                radioGroup.check(R.id.radioButton3);
-//                break;
             default:
-                radioGroup.check(R.id.radioButton1);
-//                fab.show();
+                changeToolbarTitle(0);
         }
     }
 
+
     /**
      * When the pager is automatically setting to the current page
+     *
      * @param position
      */
     @Override
     public void onPageScrollStateChanged(int position) {
 
     }
-
-    /**
-     * On checked listener to Radio Buttons.
-     * @param group
-     * @param checkedId
-     */
-//    @Override
-//    public void onCheckedChanged(RadioGroup group, int checkedId) {
-//        switch(checkedId) {
-//            case R.id.radioButton1:
-//                pager.setCurrentItem(0);
-//                break;
-//            case R.id.radioButton2:
-//                pager.setCurrentItem(1);
-//                break;
-//            case R.id.radioButton3:
-//                pager.setCurrentItem(2);
-//                break;
-//            default:
-//                pager.setCurrentItem(0);
-//                break;
-//        }
-//    }
-
-
 
     /**
      * Custom PagerAdapter class
@@ -190,7 +152,7 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public Fragment getItem(int position) {
-            switch(position) {
+            switch (position) {
                 case 0:
                     return FirstFragment.newInstance("FirstFragment, Instance 1");
                 case 1:
@@ -206,7 +168,7 @@ public class MainActivity extends AppCompatActivity
         public int getCount() {
             // Show total pages.
 //            return 3;
-        return 2;
+            return 2;
         }
 
 
@@ -216,11 +178,26 @@ public class MainActivity extends AppCompatActivity
                 case 0:
                     return "OGÓLNE";
                 case 1:
+
                     return "HISTORIA";
 //                case 2:
 //                    return "USTAWIENIA";
             }
             return null;
         }
+    }
+
+    public void changeToolbarTitle(int titleNo) {
+        switch (titleNo) {
+            case 0:
+                toolbar.setTitle("Nindojo - Stats");
+                break;
+            case 1:
+                toolbar.setTitle("Nindojo - Historia");
+                break;
+            default:
+                toolbar.setTitle("Nindojo - Stats");
+        }
+
     }
 }
