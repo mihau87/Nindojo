@@ -11,7 +11,6 @@
 //import com.mihau.game.nindojo.R;
 //import com.mihau.game.nindojo.fragments.FirstFragment;
 //import com.mihau.game.nindojo.fragments.SecondFragment;
-//import com.mihau.game.nindojo.fragments.ThirdFragment;
 //
 ///**
 // * Created by x on 27.01.2017.
@@ -28,7 +27,6 @@
 //        import android.widget.RadioGroup;
 //        import com.mihau.game.nindojo.fragments.FirstFragment;
 //        import com.mihau.game.nindojo.fragments.SecondFragment;
-//        import com.mihau.game.nindojo.fragments.ThirdFragment;
 //
 //
 //public class MainActivityViewPager extends FragmentActivity
@@ -146,8 +144,6 @@
 //                    return FirstFragment.newInstance("FirstFragment, Instance 1");
 //                case 1:
 //                    return SecondFragment.newInstance("SecondFragment, Instance 1");
-//                case 2:
-//                    return ThirdFragment.newInstance("ThirdFragment, Instance 1");
 //                default:
 //                    return FirstFragment.newInstance("FirstFragment, Default");
 //            }

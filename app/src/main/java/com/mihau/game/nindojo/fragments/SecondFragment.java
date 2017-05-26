@@ -22,7 +22,7 @@ public class SecondFragment extends Fragment {
     /**
      * fields
      */
-    private static SecondFragment instance = null;
+//    private static SecondFragment instance = null;
 
     /**
      * Create fragment view when paginated.
@@ -37,33 +37,25 @@ public class SecondFragment extends Fragment {
         View v = inflater.inflate(R.layout.second_frag, container, false);
 
         TextView textView = (TextView) v.findViewById(R.id.tvFragSecond);
-        textView.setText(getArguments().getString("msg"));
+//        textView.setText(getArguments().getString("msg"));
 
         return v;
     }
 
-    /**
-     * Returns new instance.
-     *
-     * @param text
-     * @return
-     */
-    public static SecondFragment newInstance(String text){
 
-        if(instance == null){
-            // new instance
-            instance = new SecondFragment();
+    public static SecondFragment newInstance(){
 
-            // sets data to bundle
-            Bundle bundle = new Bundle();
-            bundle.putString("msg", text);
 
-            // set data to fragment
-            instance.setArguments(bundle);
+        SecondFragment fragment = new SecondFragment();
 
-            return instance;
-        } else {
-            return instance;
-        }
+//         sets data to bundle
+         Bundle bundle = new Bundle();
+
+
+//         set data to fragment
+         fragment.setArguments(bundle);
+
+        return fragment;
     }
 }
+

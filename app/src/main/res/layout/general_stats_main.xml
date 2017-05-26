@@ -1,38 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="?attr/colorPrimaryDark">
+
+    </android.support.v7.widget.Toolbar>
 
     <TextView
         android:id="@+id/UserResultTextView"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background  ="@color/colorPrimary"
+        android:layout_height="55dp"
+        android:background="@color/colorPrimary"
         android:gravity="center"
         android:text="Twój wynik: 53 pkt"
         android:textColor="@color/white"
-        android:textSize="30dp" />
+        android:textSize="30dp">
+</TextView>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        app:layout_anchor="@id/UserResultTextView"
-        app:layout_anchorGravity="bottom|end"
-        app:srcCompat="@drawable/ic_plus" />
-
-
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_anchor="@id/UserResultTextView"
-    app:layout_anchorGravity="bottom|end"
-    android:layout_marginTop="40dp"
-    android:layout_marginBottom="@dimen/appbar_height"
-    android:layout_gravity="bottom">
-    <include layout="@layout/general_stats" />
-
-</ScrollView>
-</android.support.design.widget.CoordinatorLayout>
+        android:layout_gravity="bottom">
+        <include layout="@layout/general_stats"></include>
+    </ScrollView>
+</LinearLayout>

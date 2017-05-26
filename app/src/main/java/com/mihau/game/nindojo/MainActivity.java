@@ -1,48 +1,31 @@
 package com.mihau.game.nindojo;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.RadioGroup;
-
-import com.mihau.game.nindojo.R;
-import com.mihau.game.nindojo.activities.Login;
-import com.mihau.game.nindojo.activities.SettingsActivity;
-import com.mihau.game.nindojo.fragments.FirstFragment;
-import com.mihau.game.nindojo.fragments.GeneralSettings;
+import com.crashlytics.android.Crashlytics;
+import io.fabric.sdk.android.Fabric;
+import com.mihau.game.nindojo.fragments.GeneralStats;
 import com.mihau.game.nindojo.fragments.SecondFragment;
-import com.mihau.game.nindojo.fragments.ThirdFragment;
+
 import android.support.design.widget.TabLayout;
-import android.support.v7.widget.Toolbar;
+import android.view.View;
 
-import static com.mihau.game.nindojo.R.id.fab;
 
-public class MainActivity extends AppCompatActivity
-        implements ViewPager.OnPageChangeListener
-//        ,RadioGroup.OnCheckedChangeListener
+public class MainActivity
+        extends AppCompatActivity implements ViewPager.OnPageChangeListener
+
 {
 
     /**
      * fields
      */
-    private Toolbar toolbar;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
-    //    private static final int NUMBER_OF_PAGES = 4;
-    private RadioGroup radioGroup;
     ViewPager pager;
 
     /**
@@ -53,11 +36,15 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        // initialize
+        Fabric.with(this, new Crashlytics());
+        initializeViewPager();
+        String test = null;
+        test.length();
 
-        changeToolbarTitle(0);
-        setSupportActionBar(toolbar);
-        toolbar.setTitleTextColor(0xFFFFFFFF);
+        }
+
+    private void initializeViewPager(){
 
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
@@ -67,30 +54,47 @@ public class MainActivity extends AppCompatActivity
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(pager);
+
     }
 
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
 
     // Menu icons are inflated just as they were with actionbar
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent Intent = new Intent(this, SettingsActivity.class);
-            startActivity(Intent);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Handle action bar item clicks here. The action bar will
+//        // automatically handle clicks on the Home/Up button, so long
+//        // as you specify a parent activity in AndroidManifest.xml.
+//        int id = item.getItemId();
+//        if (id == R.id.home) {
+//            Intent Intent = new Intent(this, Login.class);
+//            startActivity(Intent);
+//            this.finish();
+//            return true;
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     /*************************************************************
      * Listeners for ViewPager
@@ -102,40 +106,6 @@ public class MainActivity extends AppCompatActivity
      * @param v
      * @param i
      */
-    @Override
-    public void onPageScrolled(int position, float v, int i) {
-
-    }
-
-    /**
-     * When a new page becomes selected
-     *
-     * @param position
-     */
-    @Override
-    public void onPageSelected(int position) {
-        switch(position) {
-            case 0:
-                changeToolbarTitle(position);
-                break;
-            case 1:
-                changeToolbarTitle(position);
-                break;
-            default:
-                changeToolbarTitle(0);
-        }
-    }
-
-
-    /**
-     * When the pager is automatically setting to the current page
-     *
-     * @param position
-     */
-    @Override
-    public void onPageScrollStateChanged(int position) {
-
-    }
 
     /**
      * Custom PagerAdapter class
@@ -152,52 +122,36 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public Fragment getItem(int position) {
+            // Show pages/tabs fragments
             switch (position) {
                 case 0:
-                    return FirstFragment.newInstance("FirstFragment, Instance 1");
+                    return GeneralStats.newInstance("FirstFragment, Instance 1");
                 case 1:
-                    return SecondFragment.newInstance("SecondFragment, Instance 1");
-//                case 2:
-//                    return ThirdFragment.newInstance("ThirdFragment, Instance 1");
+                    return SecondFragment.newInstance();
+
                 default:
-                    return FirstFragment.newInstance("FirstFragment, Default");
+                    return GeneralStats.newInstance("FirstFragment, Default");
             }
         }
 
         @Override
         public int getCount() {
-            // Show total pages.
-//            return 3;
+            // Show total pages/tabs.
             return 2;
         }
 
 
         @Override
         public CharSequence getPageTitle(int position) {
+            // Show pages/tabs titles
             switch (position) {
                 case 0:
                     return "OGÓLNE";
                 case 1:
 
                     return "HISTORIA";
-//                case 2:
-//                    return "USTAWIENIA";
             }
             return null;
         }
-    }
-
-    public void changeToolbarTitle(int titleNo) {
-        switch (titleNo) {
-            case 0:
-                toolbar.setTitle("Nindojo - Stats");
-                break;
-            case 1:
-                toolbar.setTitle("Nindojo - Historia");
-                break;
-            default:
-                toolbar.setTitle("Nindojo - Stats");
-        }
-
     }
 }

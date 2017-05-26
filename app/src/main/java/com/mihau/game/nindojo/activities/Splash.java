@@ -36,8 +36,8 @@ public class Splash extends Activity {
 
             // Login activity launching
             Intent intent = new Intent(Splash.this, Login.class);
-            Splash.this.startActivity(intent);
-            Splash.this.finish();
+            startActivity(intent);
+            finish();
         }
     }
 

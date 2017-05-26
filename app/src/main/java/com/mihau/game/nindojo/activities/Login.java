@@ -25,16 +25,15 @@ public class Login extends Activity{
         setContentView(R.layout.activity_login);
 
         loginButton = (Button) findViewById(R.id.LoginButton);
-//        loginButton.setOnClickListener(this);
         EditText loginEditText = (EditText) findViewById(R.id.LoginEditText);
         EditText passwordEditText = (EditText) findViewById(R.id.PasswordEditText);
         CheckBox rememberMeCheckBox = (CheckBox) findViewById(R.id.RememberMeCheckBox);
     }
 
-
     public void launchActivity(View view) {
         Intent Intent = new Intent(this, MainActivity.class);
         startActivity(Intent);
+        finish();
     }
 
 
