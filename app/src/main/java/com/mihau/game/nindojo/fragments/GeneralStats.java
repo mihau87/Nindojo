@@ -40,28 +40,6 @@ public class GeneralStats extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.general_stats_main, container, false);
 
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
-        toolbar.setTitleTextColor(0xFFFFFFFF);
-        toolbar.setTitle("Statystyki");
-
-        setHasOptionsMenu(true);
-
-        // przycisk wstecz
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        activity.setSupportActionBar(toolbar);
-        activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-//        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(getActivity(), "This is my Toast message!",
-//                        Toast.LENGTH_LONG).show();
-//                getActivity().onBackPressed();
-//            }
-//        });
-
-
         return view;
     }
 
@@ -73,12 +51,6 @@ public class GeneralStats extends Fragment {
     }
 
 
-    /**
-     * Returns new instance.
-     *
-     * @param text
-     * @return
-     */
     public static GeneralStats newInstance (String text){
 
         if(instance == null){
@@ -98,27 +70,4 @@ public class GeneralStats extends Fragment {
             return instance;
         }
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.settingsToolbarItem:
-                Toast.makeText(getActivity(), "Zmieniam fragment",
-                        Toast.LENGTH_LONG).show();
-
-//                FragmentManager fm = getFragmentManager();
-//                fm.beginTransaction().replace(R.id.viewPager, new SecondFragment()).commit();
-                
-
-                Fragment someFragment = SecondFragment.newInstance();
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(android.R.id.content, someFragment ); // give your fragment container id in first parameter
-                transaction.addToBackStack(null);  // if written, this transaction will be added to backstack
-                transaction.commit();
-
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 }

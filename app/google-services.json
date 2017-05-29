@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "724137224177",
+    "firebase_url": "https://nindojo-51370.firebaseio.com",
+    "project_id": "nindojo-51370",
+    "storage_bucket": "nindojo-51370.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:724137224177:android:faee93c96a5c9044",
+        "android_client_info": {
+          "package_name": "com.mihau.game.nindojo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "724137224177-375j8rpm47klgoq5qn7dkf3becekjtpf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTC2yvboRZO-Mrs5cqLV8meJ9xwjrBoN4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

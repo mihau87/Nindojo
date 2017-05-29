@@ -19,18 +19,7 @@ import com.mihau.game.nindojo.R;
  */
 public class SecondFragment extends Fragment {
 
-    /**
-     * fields
-     */
-//    private static SecondFragment instance = null;
 
-    /**
-     * Create fragment view when paginated.
-     * @param inflater
-     * @param container
-     * @param savedInstanceState
-     * @return
-     */
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,6 +27,7 @@ public class SecondFragment extends Fragment {
 
         TextView textView = (TextView) v.findViewById(R.id.tvFragSecond);
 //        textView.setText(getArguments().getString("msg"));
+
 
         return v;
     }
